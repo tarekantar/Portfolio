@@ -1,215 +1,336 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Tarek Antar | Mechanical Design Engineer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f4f6f8;
-      color: #333;
-    }
-
-    header {
-      background: #0a192f;
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
-    }
-
-    header img {
-      width: 140px;
-      border-radius: 50%;
-      margin-bottom: 15px;
-    }
-
-    section {
-      max-width: 1000px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-
-    h2 {
-      color: #0a192f;
-      margin-bottom: 10px;
-    }
-
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card h3 {
-      margin-top: 0;
-      color: #0a192f;
-    }
-
-    /* Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-
-    .modal-content {
-      background: white;
-      width: 90%;
-      max-width: 900px;
-      max-height: 90vh;
-      overflow-y: auto;
-      border-radius: 20px;
-      padding: 30px;
-      position: relative;
-    }
-
-    .close {
-      position: absolute;
-      right: 20px;
-      top: 15px;
-      font-size: 28px;
-      cursor: pointer;
-    }
-
-    .modal-body img {
-      width: 100%;
-      max-width: 750px;
-      display: block;
-      margin: 20px auto;
-      border-radius: 14px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #0a192f;
-      color: white;
-    }
-  </style>
-</head>
-
-<body>
-
-<header>
-  <img src="profile.jpg" alt="Profile Photo">
-  <h1>Tarek Antar</h1>
-  <p>Mechanical Design Engineer | SolidWorks | ANSYS FEA | ROV Systems</p>
-</header>
-
-<section>
-  <h2>About Me</h2>
-  <p>
-    Undergraduate mechanical engineering student with hands-on experience in ROV systems,
-    mechanical design, sheet metal structures, and finite element analysis.
-    Passionate about transforming concepts into manufacturable, validated designs.
-  </p>
-</section>
-
-<section>
-  <h2>Projects</h2>
-
-  <div class="projects">
-    <div class="card" onclick="openProject('rov')">
-      <h3>ROV Mechanical Design & Analysis</h3>
-      <p>SolidWorks assembly, DFA principles, and ANSYS structural validation.</p>
-    </div>
-  </div>
-</section>
-
-<!-- MODAL -->
-<div class="modal" id="projectModal">
-  <div class="modal-content">
-    <span class="close" onclick="closeProject()">&times;</span>
-    <div id="modalBody" class="modal-body"></div>
-  </div>
-</div>
-
-<footer>
-  <p>© 2026 Tarek Antar | Mechanical Engineering Portfolio</p>
-</footer>
-
-<script>
-  const projectDetails = {
-    rov: {
-      title: "ROV Mechanical Design & Analysis",
-      content: `
-<h2>ROV Mechanical Design & Analysis</h2> 
-
-<h3>I. Project Overview</h3> 
-<p> 
-Designed and developed mechanical components for an undergraduate ROV project, focusing on 
-<strong>structural integrity</strong>, <strong>manufacturability</strong>, and <strong>ease of assembly</strong>. 
-SolidWorks was used for CAD modeling, while ANSYS was applied for structural validation. 
-</p> 
-
-<h3>II. Assembly Design (SolidWorks)</h3> 
-
-<img src="rov-design.jpg" alt="ROV Assembly Design"> 
-
-<p> 
-The complete ROV structure was modeled and assembled in <strong>SolidWorks</strong>, 
-with emphasis on <strong>DFA (Design for Assembly)</strong> principles to ensure modularity, 
-easy maintenance, and fast assembly/disassembly during competition operations. 
-</p> 
-
-<ul> 
-  <li>Modular frame design</li> 
-  <li>Sheet metal plates for weight reduction</li> 
-  <li>Clear load paths and mounting points</li> 
-</ul> 
-
-<h3>III. Finite Element Analysis (ANSYS)</h3> 
-
-<p> 
-Structural validation was performed using <strong>ANSYS FEA</strong> to verify that critical 
-components could withstand expected operational loads with an acceptable 
-<strong>Factor of Safety</strong>. 
-</p> 
-
-<img src="rov-plate-fea.jpg" alt="ROV Plate FEA Results"> 
-
-<ul> 
-  <li>Von Mises stress evaluation</li> 
-  <li>Deformation analysis under loading</li> 
-  <li>Design optimization for mass reduction</li> 
-</ul> 
-
-<p style="font-size:13px;color:#777;text-align:center;"> 
-ANSYS simulation showing stress distribution on a structural plate 
-</p>
-`
-    }
-  };
-
-  function openProject(key) {
-    document.getElementById("modalBody").innerHTML = projectDetails[key].content;
-    document.getElementById("projectModal").style.display = "flex";
-  }
-
-  function closeProject() {
-    document.getElementById("projectModal").style.display = "none";
-  }
-</script>
-
-</body>
-</html>
+ <!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Tarek Antar | Mechanical Design Engineer</title> 
+  <style> 
+    /* Smooth scrolling */ 
+    html { scroll-behavior: smooth; } 
+ 
+    /* Modern Minimalist Reset */ 
+    body {  
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;  
+      margin: 0;  
+      padding: 0;  
+      background: #ffffff;  
+      color: #000000;  
+      text-align: center; 
+    } 
+ 
+    /* Floating Navigation Menu */ 
+    nav { 
+      margin-top: 40px; 
+      display: inline-flex; 
+      background: #f4f4f4; 
+      padding: 5px; 
+      border-radius: 50px; 
+      border: 1px solid #e0e0e0; 
+    } 
+    nav a { 
+      text-decoration: none; 
+      color: #555; 
+      padding: 10px 20px; 
+      font-weight: 500; 
+      font-size: 14px; 
+      transition: 0.3s; 
+    } 
+    nav a.active-btn { 
+      background: #333; 
+      color: white; 
+      border-radius: 40px; 
+    } 
+ 
+    /* Hero Section */ 
+    .hero { 
+      padding: 60px 20px; 
+      max-width: 800px; 
+      margin: 0 auto; 
+    } 
+    .profile-img { 
+      width: 150px; 
+      height: 150px; 
+      border-radius: 50%; 
+      object-fit: cover; 
+      margin-bottom: 20px; 
+      border: 1px solid #eee; 
+    } 
+    .hero h1 { 
+      font-size: 48px; 
+      font-weight: 600; 
+      line-height: 1.1; 
+      margin-bottom: 20px; 
+    } 
+    .hero p { 
+      font-size: 18px; 
+      color: #666; 
+      line-height: 1.6; 
+      margin-bottom: 30px; 
+    } 
+ 
+    /* Buttons */ 
+    .btn-group { 
+      display: flex; 
+      justify-content: center; 
+      gap: 15px; 
+    } 
+    .primary-btn { 
+      background: #222; 
+      color: white; 
+      padding: 12px 30px; 
+      border-radius: 12px; 
+      text-decoration: none; 
+      font-weight: bold; 
+      transition: 0.3s; 
+    } 
+    .primary-btn:hover { background: #000; transform: scale(1.05); } 
+ 
+    /* Project Grid */ 
+    .section-title { 
+      font-size: 32px; 
+      margin-top: 80px; 
+      font-weight: 500; 
+    } 
+    .projects-container { 
+      padding: 40px 20px; 
+      max-width: 1100px; 
+      margin: 0 auto; 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); 
+      gap: 40px; 
+      text-align: left; 
+    } 
+    .project-card { 
+      cursor: pointer; 
+      text-decoration: none; 
+      color: black; 
+      transition: 0.3s; 
+    } 
+    .project-card:hover { 
+      transform: translateY(-8px); 
+    } 
+    .project-card img { 
+      width: 100%; 
+      aspect-ratio: 16/10; 
+      object-fit: cover; 
+      border-radius: 20px; 
+      background: #f9f9f9; 
+      margin-bottom: 15px; 
+    } 
+    .project-info h3 { 
+      font-size: 22px; 
+      margin: 0; 
+      font-weight: 600; 
+    } 
+    .project-year { 
+      font-size: 18px; 
+      color: #888; 
+    } 
+ 
+    /* --- MODAL STYLES --- */ 
+    .modal { 
+      display: none; 
+      position: fixed; 
+      z-index: 2000; 
+      left: 0; 
+      top: 0; 
+      width: 100%; 
+      height: 100%; 
+      background-color: rgba(0,0,0,0.7); 
+      backdrop-filter: blur(8px); 
+      overflow-y: auto; 
+    } 
+    .modal-content { 
+      background-color: #fff; 
+      margin: 5% auto; 
+      padding: 40px; 
+      border-radius: 24px; 
+      width: 90%; 
+      max-width: 800px; 
+      text-align: left; 
+      position: relative; 
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2); 
+    } 
+    .close-btn { 
+      position: absolute; 
+      right: 25px; 
+      top: 20px; 
+      font-size: 28px; 
+      font-weight: bold; 
+      color: #999; 
+      cursor: pointer; 
+    } 
+    .close-btn:hover { color: #000; } 
+    .modal-body img { 
+      width: 100%; 
+      border-radius: 15px; 
+      margin: 20px 0; 
+    } 
+    .modal-body h3 { 
+      margin-top: 30px; 
+      font-size: 20px; 
+      color: #222; 
+      border-left: 4px solid #333; 
+      padding-left: 10px; 
+    } 
+    .modal-body p, .modal-body li { 
+      color: #444; 
+      line-height: 1.6; 
+    } 
+    .tech-tag { 
+      display: inline-block; 
+      background: #f0f0f0; 
+      padding: 5px 12px; 
+      border-radius: 6px; 
+      font-size: 12px; 
+      margin-right: 5px; 
+      font-weight: 600; 
+    } 
+ 
+    footer { 
+      padding: 80px 0; 
+      color: #999; 
+      font-size: 14px; 
+    } 
+ 
+    /* Mobile view adjustment */ 
+    @media (max-width: 600px) { 
+      .hero h1 { font-size: 32px; } 
+      .projects-container { grid-template-columns: 1fr; } 
+      .modal-content { margin: 10% auto; padding: 20px; } 
+    } 
+  </style> 
+</head> 
+<body> 
+ 
+  <nav> 
+    <a href="#projects">Projects</a> 
+    <a href="#about">About</a> 
+    <a href="#contact" class="active-btn">Contact</a> 
+  </nav> 
+ 
+  <section class="hero" id="about"> 
+    <img src="profile.jpg" alt="Tarek Antar" class="profile-img"> 
+    <h1>Mechanical Design Engineer focused on customer-centric solutions and manufacturing excellence.</h1> 
+    <p> 
+      Dedicated to translating complex customer requirements into robust mechanical systems that balance innovative design with real-world manufacturability.   
+      By integrating rigorous DFM and DFA principles using SolidWorks and ANSYS, I ensure every architecture is structurally validated and optimized for seamless, cost-effective production. 
+    </p> 
+    <div class="btn-group"> 
+      <a href="https://linkedin.com/in/tarekantar24" class="primary-btn">LinkedIn</a> 
+      <a href="https://drive.google.com/file/d/11EWjTL-qJalGy_dl8fJfL5kEs14dCIPK/view?usp=drive_link" class="primary-btn" target="_blank">Resume</a> 
+    </div> 
+  </section> 
+ 
+  <h2 class="section-title" id="projects">Click project photos below to learn more!</h2> 
+   
+  <div class="projects-container"> 
+    <div class="project-card" onclick="openModal('rov')"> 
+      <img src="rov-design.jpg" alt="ROV Chassis"> 
+      <div class="project-info"> 
+        <h3>ROV Frame Design & FEA</h3> 
+        <span class="project-year">2026</span> 
+      </div> 
+      <p style="color: #666; margin-top: 10px;">Inspired by biomimicry; optimized for modularity and structural integrity.</p> 
+    </div> 
+ 
+    <div class="project-card" onclick="openModal('drone')"> 
+      <img src="drone-analysis.jpg" alt="Drone Frame"> 
+      <div class="project-info"> 
+        <h3>Heavy Lift Drone Frame</h3> 
+        <span class="project-year">2025</span> 
+      </div> 
+      <p style="color: #666; margin-top: 10px;">Structural design optimized for carbon fiber manufacturing.</p> 
+    </div> 
+  </div> 
+ 
+  <div id="projectModal" class="modal"> 
+    <div class="modal-content"> 
+      <span class="close-btn" onclick="closeModal()">&times;</span> 
+      <div id="modal-body" class="modal-body"> 
+        </div> 
+    </div> 
+  </div> 
+ 
+  <footer id="contact"> 
+    <p>&copy; 2026 Tarek Antar. Based in Egypt.</p> 
+  </footer> 
+ 
+  <script> 
+    const projectDetails = { 
+      'rov': { 
+        title: "ROV Frame Design & FEA Analysis", 
+        year: "2026", 
+        tools: ["SolidWorks", "ANSYS Mechanical", "DFM/DFA"], 
+        content: ` 
+          <h3>I. Project Overview & Design Philosophy</h3> 
+          <p>Led the end-to-end engineering of a modular ROV main frame inspired by <strong>ray fish biomimicry</strong>. The objective was to develop a high-performance chassis that balances hydrodynamic efficiency with structural versatility. By prioritizing a modular architecture, the frame enables rapid reconfiguration of mechanical payloads, allowing the system to adapt seamlessly to diverse competition mission requirements.</p> 
+           
+          <img src="rov-design.jpg" alt="ROV Details"> 
+           
+          <h3>II. Technical Design & SolidWorks Documentation</h3> 
+          <p>Utilized SolidWorks to translate the biomimetic concept into a production-ready assembly, focusing on <strong>DFA (Design for Assembly)</strong> to ensure maximum component accessibility.</p> 
+          <ul> 
+            <li><strong>Precision Engineering:</strong> Developed comprehensive 2D technical drawings optimized for high-tolerance laser cutting.</li> 
+            <li><strong>Integrated Modularity:</strong> Engineered a universal mounting interface that simplifies the integration of sensors, actuators, and auxiliary mechanisms.</li> 
+          </ul> 
+ 
+          <h3>III. Finite Element Analysis (FEA) & Optimization</h3> 
+          <p>Validated the structural integrity of the chassis using <strong>ANSYS</strong>, ensuring the frame could withstand operational loads while maintaining a minimal weight profile.</p> 
+          <ul> 
+            <li><strong>Topology Optimization:</strong> Strategically engineered lightening holes and material gaps to reduce mass without compromising the Factor of Safety (FoS).</li> 
+            <li><strong>Structural Validation:</strong> Conducted stress and deformation simulations on individual plates to verify zero-failure performance under maximum load conditions.</li> 
+          </ul> 
+ 
+          <h3>IV. Fabrication & Final Assembly</h3> 
+          <p>Applied <strong>DFM (Design for Manufacturing)</strong> principles to bridge the gap between digital validation and physical realization.</p> 
+          <ul> 
+            <li><strong>Optimized Fabrication:</strong> Managed the transition to laser-cut production, ensuring high repeatability and structural precision.</li> 
+            <li><strong>System Integration:</strong> Successfully executed the final assembly, validating the design’s modularity and the ease of access for field maintenance and component swapping.</li> 
+          </ul> 
+        ` 
+      }, 
+      'drone': { 
+        title: "Heavy Lift Drone Frame", 
+        year: "2025", 
+        tools: ["SolidWorks", "Carbon Fiber DFM"], 
+        content: ` 
+          <p>This project focused on maximizing the payload capacity while maintaining a high strength-to-weight ratio using advanced composites.</p> 
+          <img src="drone-analysis.jpg" alt="Drone Analysis"> 
+          <p>Technical details about the drone frame go here...</p> 
+        ` 
+      } 
+    }; 
+ 
+    function openModal(projectId) { 
+      const data = projectDetails[projectId]; 
+      const modalBody = document.getElementById('modal-body'); 
+       
+      const tags = data.tools.map(tool => `<span class="tech-tag">${tool}</span>`).join(''); 
+ 
+      modalBody.innerHTML = ` 
+        <span class="project-year">${data.year}</span> 
+        <h2 style="margin-top:10px;">${data.title}</h2> 
+        <div style="margin-bottom:20px;">${tags}</div> 
+        <hr style="border:0; border-top:1px solid #eee; margin-bottom:20px;"> 
+        ${data.content} 
+      `; 
+ 
+      document.getElementById('projectModal').style.display = "block"; 
+      document.body.style.overflow = "hidden"; 
+    } 
+ 
+    function closeModal() { 
+      document.getElementById('projectModal').style.display = "none"; 
+      document.body.style.overflow = "auto"; 
+    } 
+ 
+    window.onclick = function(event) { 
+      if (event.target == document.getElementById('projectModal')) { 
+        closeModal(); 
+      } 
+    } 
+  </script> 
+ 
+</body> 
+</html>, i want to add photo in fea part and assemble part
